@@ -1,7 +1,7 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Polymer test",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
+  "description": "Polymer test",
   "keywords": [
     "OpenShift",
     "Node.js",
