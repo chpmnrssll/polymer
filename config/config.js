@@ -5,6 +5,7 @@ module.exports = {
         uri : process.env.OPENSHIFT_MONGODB_DB_HOST,
         port : process.env.OPENSHIFT_MONGODB_DB_PORT,
         name : "polymer"
+        // Connection URL: mongodb://$OPENSHIFT_MONGODB_DB_HOST:$OPENSHIFT_MONGODB_DB_PORT/
     },
     security : {
         tokenLife : 3600    // 1hr (in seconds)
