@@ -6,7 +6,7 @@ var bodyParser     = require("body-parser"),
     passport       = require("passport"),
     favicon        = require("serve-favicon"),
     config         = require("./config/config"),
-    database       = require("./config/database"),
+    //database       = require("./config/database"),
     app            = express();
 
 app.use(favicon(__dirname + "/public/favicon.ico"));
@@ -19,5 +19,6 @@ app.use(logger("dev"));                                     // log every request
 app.use(passport.initialize());
 require("./config/passport");                               // setup passport & strategies
 require("./routes")(app);                                   // setup routes
-app.listen(config.server.port);
-console.log("App started.");
+app.listen(config.server.port, config.server.ip, function() {
+    console.log("App started.");
+});
