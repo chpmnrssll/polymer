@@ -8,3 +8,4 @@ test/bower_components/
 .c9
 .openshift
 deplist.txt
+mongod

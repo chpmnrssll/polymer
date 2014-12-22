@@ -1,23 +1,23 @@
-module.exports = function (app) {
-    /*
-    app.get("*", function (req, res) {
-        res.sendFile(__dirname + "/public/index.html");
-    });
+module.exports = function(app) {
+  /*
+  app.get("*", function (req, res) {
+      res.sendFile(__dirname + "/public/index.html");
+  });
 
-    app.get("/ErrorExample", function (req, res, next) {
-        next(new Error("Random error!"));
-    });
-     */
+  app.get("/ErrorExample", function (req, res, next) {
+      next(new Error("Random error!"));
+  });
+   */
 
-    app.use("/users", require("../routes/users"));
-    app.use("/oauth2", require("../routes/oauth2"));
+  app.use("/users", require("../routes/users"));
+  app.use("/oauth2", require("../routes/oauth2"));
 
-    // production error handler (no stacktraces leaked to user)
-    app.use(function (err, req, res, next) {
-        console.log(err);
-        res.status(err.status || 500).json({
-            message : err.message,
-            error : {}
-        });
+  // production error handler (no stacktraces leaked to user)
+  app.use(function(err, req, res, next) {
+    console.log(err);
+    res.status(err.status || 500).json({
+      message: err.message,
+      error: {}
     });
+  });
 };

@@ -1,17 +1,18 @@
-var mongoose         = require("mongoose"),
-    config           = require("./config"),
-    authString       = config.db.user + (config.db.user.length > 0 ? ":" : "") + config.db.password,
-    connectionString = "mongodb://" + authString + config.db.uri + ":" + config.db.port + "/" + config.db.name;
+var mongoose = require("mongoose"),
+  config = require("./config").db(),
+  authString = config.user + (config.user.length > 0 ? ":" : "") + config.password,
+  connectionString = "mongodb://" + authString + config.uri + ":" + config.port + "/" + config.name;
 
 //connection string format: "mongodb://<user>:<password>uri:port/<name>"
 mongoose.connect(connectionString);
 
-mongoose.connection.on("error", function (err) {
-    console.log("DB connection error:", err.message);
+mongoose.connection.on("error", function(err) {
+  console.log("DB connection error:", err.message);
+  console.log(connectionString)
 });
 
-mongoose.connection.once("open", function () {
-    console.log("Connected to DB!");
+mongoose.connection.once("open", function() {
+  console.log("Connected to DB!");
 });
 
 module.exports = mongoose.connection;
