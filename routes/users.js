@@ -4,8 +4,9 @@ var router = require("express").Router(),
 
 // create (register)
 router.post("/", function(req, res, next) {
+  console.log(req.body);
   UserModel.findOne({
-    name: req.body.username
+    name: req.body.name
   }, function(err, user) {
 
     if (err) {
@@ -16,6 +17,7 @@ router.post("/", function(req, res, next) {
         message: "Username already taken."
       });
     }
+    
     new UserModel({
       email: req.body.email,
       name: req.body.name,
@@ -87,7 +89,7 @@ router.put("/:id", function(req, res, next) {
         user[key] = req.body[key];
       }
     }
-
+    
     user.save(function(err) {
       if (err) {
         return next(err);

@@ -41,6 +41,6 @@ require("./config/passport");
 // setup routes
 require("./routes")(app);
 
-app.listen(config.server.port, config.server.ip, function() {
+app.listen(config.server().port, config.server().ip, function() {
   console.log("App started.");
 });
