@@ -12,7 +12,7 @@ module.exports = {
       case 'dist':
       default:
         return ({
-          port: 80, // process.env.OPENSHIFT_NODEJS_PORT,
+          port: process.env.OPENSHIFT_NODEJS_PORT,
           ip: process.env.OPENSHIFT_NODEJS_IP,
         });
     }
