@@ -6,14 +6,15 @@ module.exports = {
           user: "",
           password: "",
           uri: process.env.IP,
-          port: 27017, // process.env.PORT,
+          port: 27017,  // process.env.PORT
           name: "polymer"
         });
       case 'dist':
+      default:
         return ({
-          user: "admin",
-          password: "VhJrmKb1KvuI",
-          uri: process.env.OPENSHIFT_MONGODB_DB_URL,
+          user: process.env.OPENSHIFT_MONGODB_DB_USERNAME,      // "admin",
+          password: process.env.OPENSHIFT_MONGODB_DB_PASSWORD,  // "VhJrmKb1KvuI",
+          uri: process.env.OPENSHIFT_MONGODB_DB_IP,
           port: process.env.OPENSHIFT_MONGODB_DB_PORT,
           name: "polymer"
         });

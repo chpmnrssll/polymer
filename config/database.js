@@ -1,7 +1,7 @@
 var mongoose = require("mongoose"),
-  config = require("./config").db(),
-  authString = config.user + (config.user.length > 0 ? ":" : "") + config.password,
-  connectionString = "mongodb://" + authString + config.uri + ":" + config.port + "/" + config.name;
+  dbConfig = require("./config").db(),
+  authString = dbConfig.user + (dbConfig.user.length > 0 ? ":" : "") + dbConfig.password,
+  connectionString = "mongodb://" + authString + dbConfig.uri + ":" + dbConfig.port + "/" + dbConfig.name;
 
 //connection string format: "mongodb://<user>:<password>uri:port/<name>"
 mongoose.connect(connectionString);
