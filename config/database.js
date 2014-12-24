@@ -1,6 +1,6 @@
 var mongoose = require("mongoose"),
   dbConfig = require("./config").db(),
-  authString = dbConfig.user + (dbConfig.user.length > 0 ? ":" : "") + dbConfig.password,
+  authString = dbConfig.user + (dbConfig.user.length > 0 ? ":" + dbConfig.password + "@" : ""),
   connectionString = "mongodb://" + authString + dbConfig.uri + ":" + dbConfig.port + "/" + dbConfig.name;
 
 //connection string format: "mongodb://<user>:<password>uri:port/<name>"
